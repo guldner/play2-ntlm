@@ -1,0 +1,27 @@
+@(user: dk.guldner.play.ntlm.NtlmUser)
+@import dk.guldner.play.ntlm.NtlmUser._
+
+@displayGroup(grp: String) = @{
+	val (group, domain) = splitId(grp)
+	group + " <span class='domain'>[Domain: " + domain.getOrElse("- ") + "]</span>"
+}
+
+@main("Ntlm Module") {
+
+[<a href='@routes.Application.removeGroups()'>Remove Groups</a>]
+[<a href='@routes.Application.logout()'>Logout</a>]
+
+    <h2>Hello @user.username</h2>
+    <p>Domain: @user.domain</p>
+    <p>Group memberships:</p>
+    	@if(user.groups.isDefined){
+		    <ul>
+    		@for(group <- user.groups.get){
+    			<li>@Html(displayGroup(group))</li>
+    		}
+    		</ul>
+    	} else {
+    		<p><small>- None found -</small></p><!-- Did you expect some? Could be because the app was reloaded but previous session cookie present -->
+    	}
+    
+}

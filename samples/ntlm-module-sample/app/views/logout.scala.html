@@ -1,0 +1,12 @@
+@(user: dk.guldner.play.ntlm.NtlmUser)
+
+@main("Logged out") {
+
+    <h2>Hi @user.username</h2>
+    <p>
+    	<h3>You have successfully logged out.</h3>
+    	Go to <a href='@routes.Application.hello()'>hello</a> to check that the userid does not exist
+    	Click <a href='@routes.Application.index()'>here</a> to re-athenticate
+    </p>
+}
+ 

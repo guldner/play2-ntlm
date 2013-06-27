@@ -1,0 +1,21 @@
+@(user: String, groups: Seq[String])
+
+@main("Ntlm Module") {
+    
+	[<a href='@routes.Application.hello()'>Say hello</a>]
+	[<a href='@routes.Application.hi()'>Say hi</a>]
+    
+    <h2>Hello @user</h2>
+    
+    <p>Group memberships:</p>
+    @if(groups != null){
+	    <ul>
+	    @for(group <- groups){
+			<li>@group</li>
+	   	}
+	   	</ul>
+	} else {
+		<p><small>- None found -</small></p><!-- Did you expect some? Could be because the app was reloaded but previous session cookie present -->
+	}
+    
+}

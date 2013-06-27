@@ -1,0 +1,12 @@
+@()(implicit request: play.api.mvc.Request[AnyContent])
+@import dk.guldner.play.ntlm.NtlmFilter
+
+@main("Groups removed") {
+
+    <h2>Hi @Application.getUseridFromSession(request)</h2>
+    <p>
+    	Your groups have been removed from the Cache.
+    	As can be seen on the <a href='@routes.Application.index()'>index page.</a>
+    </p>
+}
+ 

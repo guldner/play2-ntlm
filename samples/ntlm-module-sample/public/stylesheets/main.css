@@ -1,0 +1,19 @@
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+h2 {
+	background-color: #92D13D;
+}
+ul {
+  list-style: circle;
+  line-height: 1.5;
+  font-size: 80%;
+}
+.domain {
+	color:gray;
+}
